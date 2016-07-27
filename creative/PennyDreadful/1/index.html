@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>myBanner160x600</title>
+<meta charset="UTF-8">
+<meta name="ad.size" content="width=160,height=600">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script src="http://s0.2mdn.net/ads/studio/Enabler.js" type="text/javascript"></script>
+<style type="text/css" media="screen">
+@keyframes intro-anim{
+	0%{
+		background-position: 0px 0px;
+	}
+	80% {
+		opacity: 0.8;
+	}
+	100%{
+		opacity: 0;
+		background-position: -16800px 0px;
+	}
+}
+@-webkit-keyframes intro-anim{
+	0%{
+		background-position: 0px 0px;
+	}
+	80% {
+		opacity: 0.8;
+	}
+	100%{
+		opacity: 0;
+		background-position: -16800px 0px;
+	}
+}
+.intro {
+	opacity: 1;
+	display: block;
+	width: 300px;
+	height: 40px;
+	/* ORIGIN */
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	/* BACKGROUND */
+	background-image: url("intro.jpg");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: 16800px 40px;
+	background-color: transparent;
+	background-color: transparent;
+}
+.scene1 .intro{
+	/* animation */
+	animation: intro-anim 3.9s steps(56) 1 both;
+	-webkit-animation: intro-anim 3.9s steps(56) 1 both;
+}
+.intro-wrap1{
+    opacity: 1;
+    display: block;
+    position: absolute;
+    left: 11px;
+    top: 230px;
+    width: 117px;
+    height: 28px;
+    overflow: hidden;
+}
+.intro-wrap2{
+	opacity: 1;
+    display: block;
+    position: absolute;
+    left: 51px;
+    top: 252px;
+    width: 66px;
+    height: 30px;
+    overflow: hidden;
+}
+.intro-wrap3{
+    opacity: 1;
+    display: block;
+    position: absolute;
+    left: 28px;
+    top: 282px;
+    width: 100px;
+    height: 30px;
+    overflow: hidden;
+}
+.intro1{
+	/* TRANSFORM */
+	transform: scale(1) rotate(0deg) translate(0px, 0px);
+	-webkit-transform: scale(1) rotate(0deg) translate(0px, 0px);
+	-ms-transform: scale(1) rotate(0deg) translate(0px, 0px);
+	will-change: opacity, transform;	
+}
+.intro2{
+	/* TRANSFORM */
+	transform: scale(1) rotate(0deg) translate(-119px, 0px);
+	-webkit-transform: scale(1) rotate(0deg) translate(-119px, 0px);
+	-ms-transform: scale(1) rotate(0deg) translate(-119px, 0px);
+	will-change: opacity, transform;	
+}
+.intro3{
+	/* TRANSFORM */
+	transform: scale(1) rotate(0deg) translate(-179px, -10px);
+	-webkit-transform: scale(1) rotate(0deg) translate(-179px, -10px);
+	-ms-transform: scale(1) rotate(0deg) translate(-179px, -10px);
+	will-change: opacity, transform;	
+}
+
+/* scene 2 background IN */
+.scene2 .intro-wrap1, .scene2 .intro-wrap2, .scene2 .intro-wrap3{
+	opacity: 0;
+	/* duration: 0.5, ease: ease-out, delay: 1 */
+	transition: opacity 1.5s linear 0.5s;
+	-webkit-transition: opacity 1.5s linear 0.5s;
+}
+/* LAYER: background PROPERTIES */
+.background1{
+	opacity: 1;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 160px;
+	height: 600px;
+	/* ORIGIN */
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	/* BACKGROUND */
+	background-image: url("background1.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: 160px 600px;
+	/* TRANSFORM */
+	transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+}
+.background2{
+	opacity: 1;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 160px;
+	height: 600px;
+	/* ORIGIN */
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	/* BACKGROUND */
+	background-image: url("background2.jpg");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: 160px 600px;
+	/* TRANSFORM */
+	transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+}
+.background3{
+	opacity: 1;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 160px;
+	height: 600px;
+	/* ORIGIN */
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	/* BACKGROUND */
+	background-image: url("background3.jpg");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: 160px 600px;
+	/* TRANSFORM */
+	transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+}
+.background4{
+	opacity: 1;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 160px;
+	height: 600px;
+	/* ORIGIN */
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	/* BACKGROUND */
+	background-image: url("background4.jpg");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: 160px 600px;
+	/* TRANSFORM */
+	transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+}
+.bg {
+	opacity: 0; position: absolute;
+}
+/* scene 2 background IN */
+.scene2 .bg{
+	opacity: 1;
+	/* duration: 0.5, ease: ease-out, delay: 1 */
+	transition: opacity 1s ease-out 0.5s;
+	-webkit-transition: opacity 1s ease-out 0.5s;
+}
+/* scene 2 background IN */
+.scene3 .background1, .scene3 .background2, .scene3 .background3{
+	opacity: 0;
+	/* duration: 0.5, ease: ease-out, delay: 1 */
+	transition: opacity 1s linear ;
+	-webkit-transition: opacity 1s linear ;
+}
+
+/* scene 2 background2 IN */
+.scene3 .background2{
+	transition-delay: 1s;
+	-webkit-transition-delay: 1s;
+}
+/* scene 2 background3 IN */
+.scene3 .background3{
+	transition-delay: 1s;
+	-webkit-transition-delay: 1s;
+}
+.cta{
+	opacity: 0;
+	display: block;
+	position: absolute;
+	left: 10px;
+	top: 550px;
+	width: 140px;
+	height: 28px;
+	border: 1px solid #d71e24;
+	/* ORIGIN */
+	transform-origin: 50% 48%;
+	-webkit-transform-origin: 50% 48%;
+	-ms-transform-origin: 50% 48%;
+	/* BACKGROUND */
+	background-image: url("CTA.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: 280px 28px;
+	/* TRANSFORM */
+	transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+}
+.cta:hover{
+	background-color: #d71e24;
+	background-position: -140px 0px;
+	/* duration: 0.3, ease ease, delay: 0
+	transition: transform 0.3s ease;
+	-webkit-transition: -webkit-transform 0.3s ease; */
+}
+.Title{
+	opacity: 0;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 160px;
+	height: 136px;
+	/* ORIGIN */
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin:  50% 50%;
+	/* BACKGROUND */
+	background-image: url("assets.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: 160px 600px;
+	/* TRANSFORM */
+	transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+}
+.Tune_Bug{
+	opacity: 0;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 431px;
+	width: 160px;
+	height: 113px;
+	/* ORIGIN */
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin:  50% 50%;
+	/* BACKGROUND */
+	background-image: url("assets.png");
+	background-repeat: no-repeat;
+	background-position: 0px -431px;
+	background-size: 160px 600px;
+	/* TRANSFORM */
+	transform: none;
+	-webkit-transform: none;
+	-ms-transform: none;
+}
+/* scene 3 Tune_Bug IN */
+.scene4 .Tune_Bug, .scene4 .Title{
+	opacity: 1;
+	/* duration: 0.5, ease: ease-out, delay: 0.5 */
+	transition: opacity 0.5s linear 0.5s;
+	-webkit-transition: opacity 0.5s linear 0.5s;
+}
+/* scene 3 Tune_Bug IN */
+.scene4 .cta{
+	opacity: 1;
+	/* duration: 0.5, ease: ease-out, delay: 0.5 */
+	transition: opacity 0.5s linear 1.2s;
+	-webkit-transition: opacity 0.5s linear 1.2s;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #000;
+	border: none;
+}
+.banner {
+	display: block;
+	position: absolute;
+	overflow: hidden;
+	width: 158px;
+	height: 598px;
+	background-color: #000000;
+	border: 1px solid #666666;
+	cursor: pointer;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform: translate3d(0,0,0) rotateZ(0.001deg);
+	-webkit-transform: translate3d(0,0,0) rotateZ(0.001deg);
+	-ms-transform: translate3d(0,0,0) rotateZ(0.001deg);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+}
+</style>
+</head>
+<body>
+<div class="banner">
+<div class="vcam">
+	<div class="bg">
+		<div class="background4"></div>
+		<div class="background3"></div>
+		<div class="background2"></div>
+		<div class="background1"></div>		
+	</div>	
+	<div class="intro-wrap3">
+		<div class="intro intro3"></div>
+	</div>
+	<div class="intro-wrap2">
+		<div class="intro intro2"></div>
+	</div>
+	<div class="intro-wrap1">
+		<div class="intro intro1"></div>
+	</div>
+	<div class="Title"></div>
+	<div class="Tune_Bug"></div>
+	<div class="cta"></div>
+</div>
+</div>
+<img src="intro.jpg" width="1" height="1" alt="intro" style="opacity:0;display:none;" />
+<script  type="text/javascript">
+/*
+  _                _     
+ | |__  _ __  _ __(_)___ 
+ | '_ \| '_ \| '__| / __|
+ | |_) | | | | |_ | \__ \
+ |_.__/|_| |_|_(_)/ |___/
+                |__/     
+*/
+var bnr=(function(){return{_D:{html5 : 'querySelector' in document && 'addEventListener' in window,mobile : /Mobi/i.test(window.navigator.userAgent) || window.matchMedia("only screen and (max-width: 760px)").matches,ie : (navigator.userAgent.toLowerCase() !=-1) ? parseInt(navigator.userAgent.toLowerCase().split('msie')[1]) : 0},detect : function(val){return this._D[val]},ready: function(fn){if (document.readyState==='complete'){return fn();}document.addEventListener('DOMContentLoaded', fn, false);return this;},$:function(S){return document.getElementById(S) || document.getElementsByClassName(S) || document.getElementsByTagName(S) || document.querySelector(S) || document.querySelectorAll(S);},_PL:{img:{tag:'img',parent:'body',attr:{src:'@URL@'}},css:{tag:'link',parent:'head',attr:{'rel':'stylesheet', 'type':'text/css', 'href':'@URL@'}},js:{tag:'script',parent:'head',attr:{'type':'text/javascript','src':'@URL@'}}},politeLoad : function(src, parent){var p, e, xts='js css png gif jpg'.split(' ');for(var i=0; i < xts.length; i++){if(src.indexOf('.' + xts[i]) !=-1){switch(xts[i]){case 'png':case 'gif':case 'jpg':p=this._PL.img;break;default:p=this._PL[xts[i]];break;}break;}}el=document.createElement(p.tag);for(var prop in p.attr){el.setAttribute(prop, p.attr[prop].replace('@URL@', src));}if(!parent){parent=document.getElementsByTagName(p.parent)[0];}parent.appendChild(el);},resetElement: function(el){el.parentNode.replaceChild(el.cloneNode(true),el);},appendClass: function(el, c){el.className +=' ' + c;return this;},setClass: function(el, c){el.className=c;return this;},wait: function(fn, d){d=d || 1;return setTimeout(fn, Math.round(d*1000));},on: function(el,evt,f){el.addEventListener(evt,f,false);return this;},off: function(el,evt,f){el.removeEventListener(evt,f,false);return this;},_T :{F: 2000,L: 0,T: [],D: 0,M: null,O: []},timeline: function(val,fd){if(fd){this._T.F=fd;}if (typeof val==='string'){var map={'loops': this._T.L, 'duration': this._T.D, 'timeline': this._T.M, 'now': ((!this._T.N)?0:new Date().getTime() - this._T.N)}; if(val==='restart'){this.timeline(this._T.O, this._T.F); return true;}if(val==='halt'){for (var i=0; i < this._T.T.length; i++){clearTimeout(this._T.T[i]);}return false;}return map[val];}this._T.T=[];this._T.D=0;this._T.M=val;this._T.L++;if(!this._T.N){this._T.N=new Date().getTime();}this._T.O=val;var me=this;for(var i=0; i < val.length; i++){var f=val[i][1], ff=(val[i][0] < 100) ? val[i][0] * me._T.F : (!val[i][0])? me._T.F : val[i][0];this._T.T.push(setTimeout(f, me._T.D +=Math.abs(ff)));}return this;}};})();
+/*
+     _    _   _ ___ __  __    _  _____ ___ ___  _   _ 
+    / \  | \ | |_ _|  \/  |  / \|_   _|_ _/ _ \| \ | |
+   / _ \ |  \| || || |\/| | / _ \ | |  | | | | |  \| |
+  / ___ \| |\  || || |  | |/ ___ \| |  | | |_| | |\  |
+ /_/   \_\_| \_|___|_|  |_/_/   \_\_| |___\___/|_| \_|
+
+*/
+var $banner = bnr.$('banner')[0];
+var $cta = bnr.$('cta')[0];
+var frameDuration = 1000;
+var tl = [
+	[101,function(){bnr.appendClass($banner,'scene1');}],
+	[2.5,function(){bnr.appendClass($banner,'scene2');}],
+	[,function(){bnr.appendClass($banner,'scene3');}],
+	[1.8,function(){bnr.appendClass($banner,'scene4');}]/*,
+	[,function(){console.log(bnr.timeline('now'));}]*/
+];
+bnr.on($banner,'mouseover', function(){bnr.setClass($cta, 'cta active')});
+bnr.on($banner,'mouseout', function(){bnr.setClass($cta, 'cta')});
+function adVisibilityHandler(evt){
+	bnr.timeline(tl,frameDuration);
+}
+function pageLoadedHandler(evt){
+	if (Enabler.isVisible()) {
+		adVisibilityHandler();
+	}else {
+		Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, adVisibilityHandler);
+	}
+}
+function enablerInitHandler(evt){
+	if (Enabler.isPageLoaded()) {
+		pageLoadedHandler();
+	}else {
+		Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, pageLoadedHandler);
+	}
+}
+if (Enabler.isInitialized()) {
+	enablerInitHandler();
+}else{
+	Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+}
+
+bnr.on($banner,'click', function(){ Enabler.exit('clickTag'); });
+
+
+</script>
+</body>
+</html>

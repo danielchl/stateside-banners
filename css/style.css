@@ -1,0 +1,32 @@
+/* line 1, ../scss/style.scss */
+html, body { width: 100%; height: 100%; font-family: Helvetica; }
+
+@media (max-width: 770px) { /* line 6, ../scss/style.scss */
+  h1 { font-size: 20px !important; } }
+
+/* line 13, ../scss/style.scss */
+.wrapper { width: 100%; height: auto; padding-left: 10px; position: relative; }
+/* line 19, ../scss/style.scss */
+.wrapper header { height: 80px; padding: 5px; }
+/* line 23, ../scss/style.scss */
+.wrapper header img { width: 200px; }
+/* line 28, ../scss/style.scss */
+.wrapper .banner_menu { /*min-height: 795px;*/ height: 100vh; border-right: 1px solid #ccc; }
+@media (max-width: 770px) { /* line 28, ../scss/style.scss */
+  .wrapper .banner_menu { border-right: 0px; border-bottom: 1px solid #ccc; width: 100%; height: 100%; margin: 0 auto; } }
+/* line 43, ../scss/style.scss */
+.wrapper .banner_menu h1 { font-size: 22px; font-weight: bold; }
+/* line 48, ../scss/style.scss */
+.wrapper .banner_menu h2 { list-style: none; }
+@media (max-width: 770px) { /* line 48, ../scss/style.scss */
+  .wrapper .banner_menu h2 { font-size: 12px !important; } }
+/* line 56, ../scss/style.scss */
+.wrapper .banner_menu li { list-style: none; font-family: Helvetica; font-size: 15px; }
+/* line 61, ../scss/style.scss */
+.wrapper .banner_menu li a { cursor: pointer; text-decoration: none; color: #333333; font-weight: bold; }
+/* line 67, ../scss/style.scss */
+.wrapper .banner_menu li a:hover { color: #666666; }
+/* line 81, ../scss/style.scss */
+.wrapper .content .home { width: 79%; height: auto; text-align: center; margin: 0 auto; }
+/* line 88, ../scss/style.scss */
+.wrapper .content .banner { width: 79%; height: auto; text-align: center; margin: 0 auto; }

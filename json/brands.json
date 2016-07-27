@@ -1,0 +1,91 @@
+{
+	"brands" : [
+		{
+			"brand": "Turtle Beach",
+			
+			"banners":[
+				{
+					"code": "1",
+					"name": "Amazon",
+					
+					"width":"300",
+					"height":"250",
+					"size": "180kb",
+					"location": "creative/TurtleBeach/1/index.html",
+					"brand" : "Turtle Beach"
+
+				},
+				{
+					"code": "2",
+					"name": "Best Buy",
+				
+					"width":"300",
+					"height":"250",
+					"size": "180kb",
+					"location": "creative/TurtleBeach/2/index.html",
+					"brand" : "Turtle Beach"
+				}
+			]
+		},
+		{
+			"brand": "Red Bull",
+			
+			"banners":[
+				{
+					"code": "3",
+					"name": "Jogging",
+					
+					"width":"300",
+					"height":"250",
+					"size": "180kb",
+					"location": "creative/RedBull/1/index.html",
+					"brand" : "Red Bull"
+				},
+				{
+					"code": "4",
+					"name": "Barre",
+			
+					"width":"300",
+					"height":"250",
+					"size": "180kb",
+					"location": "creative/RedBull/2/index.html",
+					"brand" : "Red Bull"
+				},
+				{
+					"code": "6",
+					"name": "Stretch",
+					"width":"300",
+					"height":"600",
+					"size": "180kb",
+					"location": "creative/RedBull/4/index.html",
+					"brand" : "Red Bull"
+				}
+			]
+		},
+		{
+			"brand": "Penny DreadFul",
+			"banners":[
+				{
+					"code": "7",
+					"name": "ShowTime MAY10PM",
+					"width":"160",
+					"height":"600",
+					"size": "180kb",
+					"location": "creative/PennyDreadful/1/index.html",
+					"brand" : "Red Bull"
+
+				},
+				{
+					"code": "8",
+					"name": "ShowTime Expand",
+					"width":"600",
+					"height":"600",
+					"size": "180kb",
+					"location": "creative/PennyDreadful/2/index.html",
+					"brand" : "Red Bull"
+
+				}
+			]
+		}
+	]
+}

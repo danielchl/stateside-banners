@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+	<title>STATESIDE HTML 5</title>
+
+	
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+
+</head>
+<body ng-app="stagingApp">
+	<div class="wrapper" ng-controller="MainController">
+		<header>
+			<a href="#/" onclick="animateText()"><img src="images/STATESIDE_LOGO.png" alt=""></a>
+		</header>
+
+		<div class="container-fliud">
+			<div class="row">
+				<div class="banner_menu animated fadeIn col-sm-3 col-xs-12" ng-include="brandsNav" ></div>
+		
+		
+				
+		        <!-- La pagina principal ira aquí -->
+		            
+		        <div class="content col-sm-9 col-xs-12" ng-view></div>
+
+		      
+			</div>
+		</div>
+		
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="js/lib/angular-route.min.js"></script>
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+	<script src="js/plugIn/jquery.shuffleLetters.js"></script>
+	<script src="js/shuffleEffect.js"></script>
+
+	<script src="js/app.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/Controller/MainController.js"></script>
+	<script src="js/Controller/bannerCtrl.js"></script>
+
+	
+
+
+
+
+	
+    
+</body>
+</html>

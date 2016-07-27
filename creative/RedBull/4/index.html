@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="text/javascript">
+var clickTag = "http://www.google.com";
+//Validate with https://h5validator.appspot.com/dcm
+</script>
+<script>
+var loop = 0;
+var maxloopcount = 2;
+
+var images = new Array()
+function preload() {
+    for (i = 0; i < preload.arguments.length; i++) {
+        images[i] = new Image()
+        images[i].src = "i/" + preload.arguments[i]
+    }
+}
+
+var sceneanims = [
+    [ "leg1_upper", "gwd-gen-1492gwdanimation" ],
+    [ "leg2_upper", "gwd-gen-1ap4gwdanimation" ],
+    [ "body", "gwd-gen-14wjgwdanimation" ],
+    [ "cat_leg2", "gwd-gen-1vbwgwdanimation" ],
+    [ "cat_leg1", "gwd-gen-9hnmgwdanimation" ],
+    [ "leg1_lower", "gwd-gen-wkd3gwdanimation" ],
+    [ "head_grp", "gwd-gen-12xjgwdanimation" ],
+    [ "hair_back", "gwd-gen-godcgwdanimation" ],
+    [ "hair_front", "gwd-gen-1a04gwdanimation" ],
+    [ "leg2_lower", "gwd-gen-1v4cgwdanimation" ],
+];
+
+function scenestop() {
+    document.getElementById('dscene').style.visibility = 'hidden';
+
+    for(var i = 0; i<sceneanims.length; i++) 
+        document.getElementById(sceneanims[i][0]).classList.remove(sceneanims[i][1]);
+}
+
+function scenestart() {
+    for(var i = 0; i<sceneanims.length; i++)
+        document.getElementById(sceneanims[i][0]).classList.add(sceneanims[i][1]);
+
+    document.getElementById('dscene').style.visibility = 'visible';
+}
+
+var lastscene = [
+            [ "can1" , "can1_animation" ],
+            [ "can2" , "can2_animation" ],
+            [ "claim" , "claim_animation" ],
+        ];
+
+        function lastscenestop() {
+            document.getElementById('dlastscene').style.visibility = 'hidden';
+
+            for(var i = 0; i<lastscene.length; i++) {
+                document.getElementById(lastscene[i][0]).classList.remove(lastscene[i][1]);
+            }
+        }
+
+        function lastscenestart() {
+            for(var i = 0; i<lastscene.length; i++) {
+                document.getElementById(lastscene[i][0]).classList.add(lastscene[i][1]);
+            }
+
+            document.getElementById('dlastscene').style.visibility = 'visible';
+        }
+
+function begin() {
+    document.getElementById('dblank').style.visibility = 'hidden';
+    lastscenestop();
+    
+    document.getElementById('dscene').style.visibility = 'visible';
+    
+    document.getElementById('dheadline').classList.add('headlineAnim');
+    document.getElementById('dheadline').style.visibility = 'visible';
+
+    scenestart();
+
+    setTimeout(wings, 4000);
+}
+
+function wings() {
+    
+    document.getElementById('dblank').style.visibility = 'visible';
+
+    document.getElementById('dscene').style.visibility = 'hidden';
+    scenestop();    
+
+    document.getElementById('dheadline').classList.remove('headlineAnim');
+    document.getElementById('dheadline').style.visibility = 'hidden';
+
+    lastscenestart();
+
+    loop++;
+    if ( loop < maxloopcount ) {
+        setTimeout(begin, 2500);
+    }
+}
+
+function startAd() {
+    preload("arms_upper.png", "bg.png", "body.png", "border.png", "can.png", "can1.png", "can2.png", "cat1.png", "cat2.png", "claim.png", "hair_back.png", "hair_front.png", "head.png", "headline.png", "leg1_lower.png", "leg1_upper.png", "leg2_lower.png", "leg2_upper.png");
+
+    begin();
+}
+
+function compatible() {
+    return !!(document.createElementNS && document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+}
+
+function main() {
+    if ( compatible() ) {
+        c = window.location.hash;
+        if ( c != null ) {
+            if ( c.charAt(0) == "#") {
+                c = c.slice(1, 10);
+                maxloopcount = c;
+            }
+        }
+
+        startAd();
+    }
+
+}
+
+</script>
+</head>
+
+<body style="margin:0px; padding:0px; border:0px;" onload="main();">
+<div id="ad"><a href="javascript:void(0);" onclick="window.open(window.clickTag);" style="cursor: pointer;">
+    <div id="banner">
+
+        <div id="dscene">
+            <img src="i/bg.png" id="bg" class="gwd-img-4j90">
+            <img src="i/leg1_upper.png" id="leg1_upper" class="gwd-img-kd4h gwd-gen-1492gwdanimation">
+            <img src="i/leg2_upper.png" id="leg2_upper" class="gwd-img-5k4i gwd-gen-1ap4gwdanimation">
+            <img src="i/body.png" id="body" class="gwd-img-xygp gwd-gen-14wjgwdanimation">
+            <img src="i/arms_upper.png" id="arm1_upper" class="gwd-img-1fef">
+            <img src="i/arms_upper.png" id="arm2_upper" class="gwd-img-1mxc">
+            <div class="gwd-div-oqh3" data-gwd-group="cat_legs" id="cat_legs">
+                <img src="i/cat2.png" class="gwd-img-s1ax gwd-grp-wt09 gwd-gen-1vbwgwdanimation" data-gwd-grp-id="cat_leg2" id="cat_leg2">
+                <img src="i/cat1.png" class="gwd-img-awg0 gwd-grp-wt09 gwd-gen-9hnmgwdanimation" data-gwd-grp-id="cat_leg1" id="cat_leg1">
+            </div>
+            <img src="i/leg1_lower.png" id="leg1_lower" class="gwd-img-11ts gwd-gen-wkd3gwdanimation">
+            <div class="gwd-div-avvb gwd-gen-12xjgwdanimation" data-gwd-group="head_grp" id="head_grp">
+                <img src="i/hair_back.png" class="gwd-img-1gpk gwd-grp-f14z gwd-gen-godcgwdanimation" data-gwd-grp-id="hair_back" id="hair_back">
+                <img src="i/head.png" class="gwd-img-logi gwd-grp-f14z" data-gwd-grp-id="head">
+                <img src="i/hair_front.png" class="gwd-img-1mjd gwd-grp-f14z gwd-gen-1a04gwdanimation" data-gwd-grp-id="hair_front" id="hair_front">
+            </div>
+            <img src="i/leg2_lower.png" id="leg2_lower" class="gwd-img-1p0q gwd-gen-1v4cgwdanimation">
+            <img src="i/can.png" id="can" class="gwd-img-yaoh">
+        </div>
+       
+        <div id="dblank"></div>
+        <div id="dlastscene">
+                  <img src="i/can1.png" id="can1" class="can1_position can1_animation">
+                  <img src="i/can2.png" id="can2" class="can2_position can2_animation">
+                  <img src="i/claim.png" id="claim" class="claim_position claim_animation">
+                </div>
+        <div id="dheadline"><img src="i/headline.png" width="300" height="600" id="hand" class="sharp"></div>
+        <div id="bordura"><img src="i/border.png" width="298" height="598" border="0" id="fallback" class="sharp"></div>
+    </div>
+</a></div>
+</body>
+</html>

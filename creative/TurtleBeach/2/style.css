@@ -1,0 +1,329 @@
+
+#banner {
+    position: absolute;
+    width: 298px;
+    height: 248px;
+    border: 1px solid #999999;
+    top: 0px;
+    left: 0px;
+    background-color: #000000;
+	overflow: hidden;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+#adContainer {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+
+#bg1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: url( bg1.jpg ) no-repeat;
+    
+}
+
+#frame1 {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    left: 0px;
+    top: 0px;
+}
+
+#soldier {
+    position: absolute;
+    width: 254px;
+    height: 250px;
+    background: url('soldier.png') no-repeat;
+    left: 300px;
+    top: 0px;
+}
+
+#copy1 {
+    position: absolute;
+    background: url('sprite.png') no-repeat 0 0;
+	width: 229px;
+	height: 71px;
+    left: -300px;
+    top: 132px;
+}
+
+#zombie {
+    position: absolute;
+    width: 210px;  
+    height: 250px;
+    background: url('zombie.png') no-repeat;
+    left:300px;
+    top:0px;
+}    
+
+#copy2 {
+    position: absolute;
+    background: url('sprite.png') no-repeat -11px -84px;
+	width: 279px;
+	height: 43px;
+    left: -300px;
+    top: 116px;
+}
+
+#frame2 {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    left: 0px;
+    top: 0px;
+}
+
+#frame3 {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    left: 0px;
+    top: 0px;
+}
+
+#clown {
+    position: absolute;
+    width: 276px;  
+    height: 250px;
+    background: url('clown.png') no-repeat;
+    left:300px;
+    top:0px;
+}
+
+#copy3 {
+    position: absolute;
+    background: url('sprite.png') no-repeat -7px -136px;
+	width: 194px;
+	height: 56px;
+    left: -300px;
+    top: 167px;
+}
+
+#light {
+    position: absolute;
+    background: url('light.png') no-repeat;
+    width: 300px;
+    height: 203px;
+    top: 0px;
+    left: 0px;
+}
+
+#finalFrames {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;
+    background: url('bg2.jpg') no-repeat;
+    opacity: 0;
+}
+
+#blue_light {
+    position: absolute;
+    width: 300px;
+    height: 250px; 
+    left: 0px;
+    top: 0px;
+    background: url('blue_light.png') no-repeat;
+}
+
+
+
+#headphone {
+    position: absolute;
+    background: url('headphone.png') no-repeat;
+	width: 204px;
+	height: 280px;
+    top: -38px;
+    left: -52px;
+    transform: scale(0.93);
+
+    image-rendering: -moz-crisp-edges;         /* Firefox */
+        image-rendering:   -o-crisp-edges;         /* Opera */
+        image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+        image-rendering: crisp-edges;
+    opacity: 0;
+}
+
+#control {
+    position: absolute;
+    background: url('control.png') no-repeat;
+	width: 63px;
+	height: 122px;
+    bottom: 4px;
+    left: 81px;
+    opacity: 0;
+}
+
+#circles {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    top: 48px;
+    left: 83px;
+    opacity: 0;
+}
+
+#circle1 {
+    position: absolute;
+    background: url('sprite.png') no-repeat -264px -136px;
+	width: 52px;
+	height: 52px;
+    top: 0px;
+    left: 0px;
+}
+
+#circle2 {
+    position: absolute;
+    background: url('sprite.png') no-repeat -322px -136px;
+	width: 32px;
+	height: 32px;
+    top: 11px;
+    left: 10px;
+}
+
+#s {
+    position: absolute;
+    background: url('sprite.png') no-repeat -362px -144px;
+	width: 12px;
+	height: 22px;
+    top: 17px;
+    left: 20px;
+}
+
+#superHuman {
+    position: absolute;
+    background: url('sprite.png') no-repeat -284px -12px;
+	width: 139px;
+	height: 36px;
+    top: 58px;
+    left: 141px;
+    opacity: 0;
+}
+
+#px {
+    position: absolute;
+    background: url('sprite.png') no-repeat -18px -233px;
+	width: 140px;
+	height: 51px;
+    bottom: 66px;
+    left: 143px;
+    opacity: 0;
+}
+
+#compatible {
+    position: absolute;
+    background: url('sprite.png') no-repeat -170px -234px;
+	width: 89px;
+	height: 19px;
+    bottom: 14px;
+    left: 144px;
+    opacity: 0;
+}
+
+#triangle {
+    position: absolute;
+    background: url('sprite.png') no-repeat -273px -234px;
+	width: 65px;
+	height: 57px;
+    top: 29px;
+    left: 144px;
+    opacity: 0;
+}
+
+#divider {
+    position: absolute;
+    background: url('sprite.png') no-repeat 0 -205px;
+	width: 0px;
+	height: 18px;
+    top: 120px;
+    left: 0px;
+    opacity: 0;
+}
+
+#hearcopy {
+    position: absolute;
+    background: url('sprite.png') no-repeat -322px -205px;
+	width: 212px;
+	height: 15px;
+    top: 98px;
+    left: 71px;
+    opacity: 0;
+}
+
+#cta {
+    position: absolute;
+    background: url('sprite.png') no-repeat -290px -65px;
+	width: 224px;
+	height: 45px;
+    bottom: 15px;
+    left: 33px;
+    opacity: 0;
+}
+
+#globalCTA {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    opacity: 0;
+}
+
+#topShine {
+    position: absolute;
+    background: url('sprite.png') no-repeat -475px -109px;
+	width: 49px;
+	height: 27px;
+    top: -8px;
+    right: 75px;
+    opacity: 0;
+    
+}
+
+#bottomShine {
+    position: absolute;
+    background: url('sprite.png') no-repeat -411px -153px;
+	width: 139px;
+	height: 17px;
+    left: 50px;
+    bottom: 1px;
+    opacity: 0;
+}
+
+#strobeEffect {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;
+    background-color: #ffffff;
+    
+    opacity: 0;
+}
+
+#smallTriangle {
+    position: absolute;
+    background: url('sprite.png') no-repeat -362px -227px;
+	width: 37px;
+	height: 33px;
+    bottom: 8px;
+    right: 6px;
+}
+
+#logo {
+    position: absolute;
+    background: url('sprite.png') no-repeat -434px -243px;
+	width: 41px;
+	height: 28px;
+    bottom: 24px;
+    right: 38px;
+    opacity: 0;
+}

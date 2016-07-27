@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="text/javascript">
+var clickTag = "http://www.google.com";
+//Validate with https://h5validator.appspot.com/dcm
+</script>
+<script>
+var loop = 0;
+var maxloopcount = 2;
+
+var images = new Array()
+function preload() {
+    for (i = 0; i < preload.arguments.length; i++) {
+        images[i] = new Image()
+        images[i].src = "i/" + preload.arguments[i]
+    }
+}
+
+var sceneanims = [
+    [ "wheel", "gwd-gen-t2r9gwdanimation" ],
+    [ "head1", "gwd-gen-16y9gwdanimation" ],
+    [ "leg1_lower_1", "gwd-gen-xv3xgwdanimation" ],
+    [ "leg1_upper_1", "gwd-gen-19jfgwdanimation" ],
+    [ "foot1_pedal_1", "gwd-gen-1rwigwdanimation" ],
+    [ "body1", "gwd-gen-adz5gwdanimation" ],
+    [ "crank1", "gwd-gen-ix06gwdanimation" ],
+    [ "arms1", "gwd-gen-45wugwdanimation" ],
+    [ "leg1_lower", "gwd-gen-1mw5gwdanimation" ],
+    [ "leg1_upper", "gwd-gen-1uvlgwdanimation" ],
+    [ "foot1_pedal", "gwd-gen-1ww3gwdanimation" ],
+    [ "leg2_lower_1", "gwd-gen-gpdmgwdanimation" ],
+    [ "leg2_foot_1", "gwd-gen-qyohgwdanimation" ],
+    [ "leg2_upper_1", "gwd-gen-1992gwdanimation" ],
+    [ "wheel2", "gwd-gen-1le6gwdanimation" ],
+    [ "crank2", "gwd-gen-1l77gwdanimation" ],
+    [ "leg2_lower", "gwd-gen-1txsgwdanimation" ],
+    [ "leg2_foot", "gwd-gen-4knogwdanimation" ],
+    [ "leg2_upper", "gwd-gen-eibhgwdanimation" ],
+    [ "body2", "gwd-gen-ekcqgwdanimation" ],
+    [ "arms2", "gwd-gen-1omegwdanimation" ],
+    [ "hair2", "gwd-gen-1n9zgwdanimation" ],
+    [ "head2", "gwd-gen-s1b5gwdanimation" ],
+    [ "wheel3", "gwd-gen-188dgwdanimation" ],
+    [ "leg3_upper_1", "gwd-gen-1qz3gwdanimation" ],
+    [ "leg3_lower_1", "gwd-gen-3ll8gwdanimation" ],
+    [ "shoe3_1", "gwd-gen-1mgpgwdanimation" ],
+    [ "head3", "gwd-gen-1132gwdanimation" ],
+    [ "crank3", "gwd-gen-vhd6gwdanimation" ],
+    [ "leg3_upper", "gwd-gen-uxuhgwdanimation" ],
+    [ "leg3_lower", "gwd-gen-bcwagwdanimation" ],
+    [ "shoe3", "gwd-gen-yo2rgwdanimation" ],
+    [ "body3", "gwd-gen-smc9gwdanimation" ],
+    [ "arms3", "gwd-gen-167agwdanimation" ],
+];
+
+function scenestop() {
+    document.getElementById('dscene').style.visibility = 'hidden';
+
+    for(var i = 0; i<sceneanims.length; i++) 
+        document.getElementById(sceneanims[i][0]).classList.remove(sceneanims[i][1]);
+}
+
+function scenestart() {
+    for(var i = 0; i<sceneanims.length; i++)
+        document.getElementById(sceneanims[i][0]).classList.add(sceneanims[i][1]);
+
+    document.getElementById('dscene').style.visibility = 'visible';
+}
+
+var lastscene = [
+            [ "can1" , "can1_animation" ],
+            [ "can2" , "can2_animation" ],
+            [ "claim" , "claim_animation" ],
+        ];
+
+        function lastscenestop() {
+            document.getElementById('dlastscene').style.visibility = 'hidden';
+
+            for(var i = 0; i<lastscene.length; i++) {
+                document.getElementById(lastscene[i][0]).classList.remove(lastscene[i][1]);
+            }
+        }
+
+        function lastscenestart() {
+            for(var i = 0; i<lastscene.length; i++) {
+                document.getElementById(lastscene[i][0]).classList.add(lastscene[i][1]);
+            }
+
+            document.getElementById('dlastscene').style.visibility = 'visible';
+        }
+
+function begin() {
+    document.getElementById('dblank').style.visibility = 'hidden';
+    lastscenestop();
+
+    document.getElementById('dscene').style.visibility = 'visible';
+    scenestart();
+
+    setTimeout(hand, 500);
+}
+
+function hand() {
+
+    document.getElementById('dheadline').classList.add('headlineAnim');
+    document.getElementById('dheadline').style.visibility = 'visible';
+
+    setTimeout(wings, 2700);
+}
+
+function wings() {
+    document.getElementById('dblank').style.visibility = 'visible';
+
+    document.getElementById('dscene').style.visibility = 'hidden';
+    scenestop();
+
+    document.getElementById('dheadline').classList.remove('headlineAnim');
+    document.getElementById('dheadline').style.visibility = 'hidden';
+
+    lastscenestart();
+
+    loop++;
+    if ( loop < maxloopcount ) {
+        setTimeout(begin, 4800);
+    }
+}
+
+function startAd() {
+    preload("biker1_bike1.png", "biker1_sprite.png", "biker2_bike2.png", "biker2_sprite.png", "biker3_arms3.png", "biker3_bike3.png", "biker3_body3.png", "biker3_head3.png", "biker3_leg3_lower.png", "biker3_leg3_upper.png", "biker3_shoe3.png", "border.png", "can1.png", "can2.png", "claim.png", "crank.png", "headline.png");
+
+    begin();
+}
+
+function compatible() {
+    return !!(document.createElementNS && document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+}
+
+function main() {
+    if ( compatible() ) {
+        c = window.location.hash;
+        if ( c != null ) {
+            if ( c.charAt(0) == "#") {
+                c = c.slice(1, 10);
+                maxloopcount = c;
+            }
+        }
+
+        startAd();
+    }
+}
+
+</script>
+</head>
+
+<body style="margin:0px; padding:0px; border:0px;" onload="main();">
+<div id="ad"><a href="javascript:void(0);" onclick="window.open(window.clickTag);" style="cursor: pointer;">
+    <div id="banner">
+
+        <div id="dscene">
+            <div class="gwd-div-1qgc" data-gwd-group="spinner_1" id="spinner_1">
+                <img src="i/biker1_sprite.png" class="gwd-img-6qaf gwd-gen-t2r9gwdanimation gwd-grp-1ib4" data-gwd-grp-id="wheel" id="wheel">
+                <img src="i/biker1_sprite.png" class="gwd-img-1vdt gwd-gen-16y9gwdanimation gwd-grp-1ib4" data-gwd-grp-id="head1" id="head1">
+                <div data-gwd-group="leg_back" class="gwd-div-mmbb gwd-grp-1ib4" data-gwd-grp-id="leg_back">
+                    <img src="i/biker1_sprite.png" class="gwd-img-1ve0 gwd-grp-1l5p gwd-gen-xv3xgwdanimation" data-gwd-grp-id="leg1_lower_1" id="leg1_lower_1">
+                    <img src="i/biker1_sprite.png" class="gwd-img-chb0 gwd-grp-1l5p gwd-gen-19jfgwdanimation" data-gwd-grp-id="leg1_upper_1" id="leg1_upper_1">
+                    <img src="i/biker1_sprite.png" class="gwd-img-w2pz gwd-grp-1l5p gwd-gen-1rwigwdanimation" data-gwd-grp-id="foot1_pedal_1" id="foot1_pedal_1">
+                </div>
+                <img src="i/biker1_sprite.png" class="gwd-img-vq8n gwd-gen-adz5gwdanimation gwd-grp-1ib4" data-gwd-grp-id="body1" id="body1">
+                <img src="i/biker1_bike1.png" class="gwd-img-1a4d gwd-grp-1ib4" data-gwd-grp-id="bike1">
+                <img src="i/crank.png" class="gwd-img-68k0 gwd-gen-ix06gwdanimation gwd-grp-1ib4" data-gwd-grp-id="crank1" id="crank1">
+                <img src="i/biker1_sprite.png" class="gwd-img-dwsx gwd-gen-45wugwdanimation gwd-grp-1ib4" data-gwd-grp-id="arms1" id="arms1">
+                <div class="gwd-div-xi5w gwd-grp-1ib4" data-gwd-group="leg_front" data-gwd-grp-id="leg_front">
+                    <img src="i/biker1_sprite.png" class="gwd-img-1ve0 gwd-grp-xt1k gwd-gen-1mw5gwdanimation" data-gwd-grp-id="leg1_lower" id="leg1_lower">
+                    <img src="i/biker1_sprite.png" class="gwd-img-chb0 gwd-grp-xt1k gwd-gen-1uvlgwdanimation" data-gwd-grp-id="leg1_upper" id="leg1_upper">
+                    <img src="i/biker1_sprite.png" class="gwd-img-w2pz gwd-grp-xt1k gwd-gen-1ww3gwdanimation" data-gwd-grp-id="foot1_pedal" id="foot1_pedal">
+                </div>
+            </div>
+
+            <div class="gwd-div-10r0" data-gwd-group="spinner_2" id="spinner_2">
+                <div data-gwd-group="leg2_back" class="gwd-div-1es7 gwd-grp-10cq" data-gwd-grp-id="leg2_back">
+                    <img src="i/biker2_sprite.png" class="gwd-img-12q6 gwd-grp-2mlv gwd-gen-gpdmgwdanimation" data-gwd-grp-id="leg2_lower_1" id="leg2_lower_1">
+                    <img src="i/biker2_sprite.png" class="gwd-img-1n6x gwd-grp-2mlv gwd-gen-qyohgwdanimation" data-gwd-grp-id="leg2_foot_1" id="leg2_foot_1">
+                    <img src="i/biker2_sprite.png" class="gwd-img-avqx gwd-grp-2mlv gwd-gen-1992gwdanimation" data-gwd-grp-id="leg2_upper_1" id="leg2_upper_1">
+                </div>
+                <img src="i/biker2_sprite.png" class="gwd-img-jyuu gwd-gen-1le6gwdanimation gwd-grp-10cq" data-gwd-grp-id="wheel2" id="wheel2">
+                <img src="i/biker2_bike2.png" class="gwd-img-j57p gwd-grp-10cq" data-gwd-grp-id="bike2">
+                <img src="i/biker2_sprite.png" class="gwd-img-tk17 gwd-gen-1l77gwdanimation gwd-grp-10cq" data-gwd-grp-id="crank2" id="crank2">
+                <div class="gwd-div-yriu gwd-grp-10cq" data-gwd-group="leg2_front" data-gwd-grp-id="leg2_front">
+                    <img src="i/biker2_sprite.png" class="gwd-img-12q6 gwd-grp-qbzp gwd-gen-1txsgwdanimation" data-gwd-grp-id="leg2_lower" id="leg2_lower">
+                    <img src="i/biker2_sprite.png" class="gwd-img-1n6x gwd-grp-qbzp gwd-gen-4knogwdanimation" data-gwd-grp-id="leg2_foot" id="leg2_foot">
+                    <img src="i/biker2_sprite.png" class="gwd-img-avqx gwd-grp-qbzp gwd-gen-eibhgwdanimation" data-gwd-grp-id="leg2_upper" id="leg2_upper">
+                </div>
+                <img src="i/biker2_sprite.png" class="gwd-img-cygt gwd-gen-ekcqgwdanimation gwd-grp-10cq" data-gwd-grp-id="body2" id="body2">
+                <img src="i/biker2_sprite.png" class="gwd-img-aa3m gwd-gen-1omegwdanimation gwd-grp-10cq" data-gwd-grp-id="arms2" id="arms2">
+                <img src="i/biker2_sprite.png" class="gwd-img-hgtt gwd-gen-1n9zgwdanimation gwd-grp-10cq" data-gwd-grp-id="hair2" id="hair2">
+                <img src="i/biker2_sprite.png" class="gwd-img-7ibn gwd-gen-s1b5gwdanimation gwd-grp-10cq" data-gwd-grp-id="head2" id="head2">
+            </div>
+
+            <div class="gwd-div-zv30" data-gwd-group="spinner_3" id="spinner_3">
+                <img src="i/biker1_sprite.png" class="gwd-img-136o gwd-gen-188dgwdanimation gwd-grp-uf9q" data-gwd-grp-id="wheel3" id="wheel3">
+                <div data-gwd-group="leg3_back" class="gwd-div-s1u4 gwd-grp-uf9q" data-gwd-grp-id="leg3_back" id="leg3_back">
+                    <img src="i/biker3_leg3_upper.png" class="gwd-img-exik gwd-grp-i3j5 gwd-gen-1qz3gwdanimation" data-gwd-grp-id="leg3_upper_1" id="leg3_upper_1">
+                    <img src="i/biker3_leg3_lower.png" class="gwd-img-186d gwd-grp-i3j5 gwd-gen-3ll8gwdanimation" data-gwd-grp-id="leg3_lower_1" id="leg3_lower_1">
+                    <img src="i/biker3_shoe3.png" class="gwd-img-13z1 gwd-grp-i3j5 gwd-gen-1mgpgwdanimation" data-gwd-grp-id="shoe3_1" id="shoe3_1">
+                </div>
+                <img src="i/biker3_bike3.png" class="gwd-img-1in2 gwd-grp-uf9q" data-gwd-grp-id="bike3">
+                <img src="i/biker3_head3.png" class="gwd-img-1pu3 gwd-gen-1132gwdanimation gwd-grp-uf9q" data-gwd-grp-id="head3" id="head3">
+                <img src="i/crank.png" class="gwd-img-owxv gwd-gen-vhd6gwdanimation gwd-grp-uf9q" data-gwd-grp-id="crank3" id="crank3">
+                <div class="gwd-div-185t gwd-grp-uf9q" data-gwd-group="leg3_front" data-gwd-grp-id="leg3_front">
+                    <img src="i/biker3_leg3_upper.png" class="gwd-img-exik gwd-grp-1dtw gwd-gen-uxuhgwdanimation" data-gwd-grp-id="leg3_upper" id="leg3_upper">
+                    <img src="i/biker3_leg3_lower.png" class="gwd-img-186d gwd-grp-1dtw gwd-gen-bcwagwdanimation" data-gwd-grp-id="leg3_lower" id="leg3_lower">
+                    <img src="i/biker3_shoe3.png" class="gwd-img-13z1 gwd-grp-1dtw gwd-gen-yo2rgwdanimation" data-gwd-grp-id="shoe3" id="shoe3">
+                </div>
+                <img src="i/biker3_body3.png" class="gwd-img-17u1 gwd-gen-smc9gwdanimation gwd-grp-uf9q" data-gwd-grp-id="body3" id="body3">
+                <img src="i/biker3_arms3.png" class="gwd-img-epl2 gwd-gen-167agwdanimation gwd-grp-uf9q" data-gwd-grp-id="arms3" id="arms3">
+            </div>
+        </div>
+       
+        <div id="dblank"></div>
+        <div id="dlastscene">
+                  <img src="i/can1.png" id="can1" class="can1_position can1_animation">
+                  <img src="i/can2.png" id="can2" class="can2_position can2_animation">
+                  <img src="i/claim.png" id="claim" class="claim_position claim_animation">
+                </div>
+        <div id="dheadline"><img src="i/headline.png" width="300" height="600" id="hand"></div>
+        <div id="bordura"><img src="i/border.png" width="298" height="598" border="0" id="fallback"></div>
+    </div>
+</a></div>
+</body>
+</html>

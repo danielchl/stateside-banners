@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>myBanner300x600</title>
+<meta charset="UTF-8">
+<meta name="ad.size" content="width=300,height=600">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="https://www.gstatic.com/ads/ci/gwdyoutube/1/gwdyoutube_style.css">
+  <script type="text/javascript" src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/external_hosted/polymer/custom.elements.min.js"></script>
+  <script type="text/javascript" src="googbase_min.js"></script>
+  <script type="text/javascript" src="gwdyoutube_min.js"></script>
+  <!--script type="text/javascript" src="https://www.gstatic.com/ads/ci/gwdyoutube/1/gwdyoutube_min.js"></script-->
+</head>
+<body style="margin: 0; padding: 0;">
+	<div id="main-container">
+		<div id="collapsed-state">
+			<div class="banner">
+			<div class="vcam">
+				<div class="bg">
+					<div class="background4"></div>	
+				</div>	
+				<div class="Title"></div>
+				<div class="Tune_Bug"></div>
+			</div>
+			<div class="cta"></div>
+			<div id="video-container-0" style="width: 300px; height: 600px;">
+				<video id="video-0">
+			        <!-- Sources will be added via JS using Enabler.getUrl calls. -->
+			    </video>
+			</div>	
+			</div>	
+		</div>
+		<div id="expanded-state">
+			<div id="video" class="video"></div>
+			<div id="trailer1" class="trailer1_btn trailer_btn trailer_selected"></div>
+			<div id="trailer2" class="trailer2_btn trailer_btn"></div>
+			<div class="text1"></div>
+			<div class="expanded_cta"></div>
+			<div class="close_btn"></div>
+		</div>
+	</div>
+
+<script  type="text/javascript">
+/*
+  _                _     
+ | |__  _ __  _ __(_)___ 
+ | '_ \| '_ \| '__| / __|
+ | |_) | | | | |_ | \__ \
+ |_.__/|_| |_|_(_)/ |___/
+                |__/     
+*/
+var bnr=(function(){return{_D:{html5 : 'querySelector' in document && 'addEventListener' in window,iOS : (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i)) || (navigator.userAgent.match(/iPod/i)),mobile : /Mobi/i.test(window.navigator.userAgent) || window.matchMedia("only screen and (max-width: 760px)").matches,ie : (navigator.userAgent.toLowerCase().indexOf("msie") !=-1) ? parseInt(navigator.userAgent.toLowerCase().split('msie')[1]) : 0},detect : function(val){return this._D[val]},ready: function(fn){if (document.readyState==='complete'){return fn();}document.addEventListener('DOMContentLoaded', fn, false);return this;},$:function(S){return document.getElementById(S) || document.getElementsByClassName(S) || document.getElementsByTagName(S) || document.querySelector(S) || document.querySelectorAll(S);},_PL:{img:{tag:'img',parent:'body',attr:{src:'@URL@'}},css:{tag:'link',parent:'head',attr:{'rel':'stylesheet', 'type':'text/css', 'href':'@URL@'}},js:{tag:'script',parent:'head',attr:{'type':'text/javascript','src':'@URL@'}},svg:{tag: 'object',parent: 'body',attr:{'type':'image/svg+xml','data':'@URL@'}}},politeLoad : function(src, parent){var p, e, img=false, xts='js css png gif jpg svg'.split(' ');for(var i=0; i < xts.length; i++){if(src.indexOf('.' + xts[i]) !=-1){switch(xts[i]){case 'png':case 'gif':case 'jpg':img=true;p=this._PL.img;break;case 'svg':img=true;p=this._PL.svg;break;default:p=this._PL[xts[i]];break;}break;}}el=document.createElement(p.tag);for(var prop in p.attr){el.setAttribute(prop, p.attr[prop].replace('@URL@', src));}if(!parent){if(img){return el;}parent=document.getElementsByTagName(p.parent)[0];}return parent.appendChild(el);},preload: function(images){var a=images.split(','), l=a.length, r=[];for(var i=0; i < l; i++){r.push(this.politeLoad(a[i]));}return r;},resetElement: function(el){el.parentNode.replaceChild(el.cloneNode(true),el);},appendClass: function(el, c){el.className +=' ' + c;return this;},setClass: function(el, c){el.className=c;return this;},wait: function(fn, d){d=d || 1;return setTimeout(fn, Math.round(d*1000));},on: function(el,evt,f){el.addEventListener(evt,f,false);return this;},off: function(el,evt,f){el.removeEventListener(evt,f,false);return this;},_T :{F: 2000,L: 0,T: [],D: 0,M: null,O: []},timeline: function(val,fd){if(fd){this._T.F=fd;}if (typeof val==='string'){var map={'loops': this._T.L, 'duration': this._T.D, 'timeline': this._T.M, 'now': ((!this._T.N)?0:new Date().getTime() - this._T.N)}; if(val==='restart'){this.timeline(this._T.O, this._T.F); return true;}if(val==='halt'){for (var i=0; i < this._T.T.length; i++){clearTimeout(this._T.T[i]);}return false;}return map[val];}this._T.T=[];this._T.D=0;this._T.M=val;this._T.L++;if(!this._T.N){this._T.N=new Date().getTime();}this._T.O=val;var me=this;for(var i=0; i < val.length; i++){var f=val[i][1], ff=(val[i][0] < 100) ? val[i][0] * me._T.F : (!val[i][0])? me._T.F : val[i][0];this._T.T.push(setTimeout(f, me._T.D +=Math.abs(ff)));}return this;}};})();
+/*
+     _    _   _ ___ __  __    _  _____ ___ ___  _   _ 
+    / \  | \ | |_ _|  \/  |  / \|_   _|_ _/ _ \| \ | |
+   / _ \ |  \| || || |\/| | / _ \ | |  | | | | |  \| |
+  / ___ \| |\  || || |  | |/ ___ \| |  | | |_| | |\  |
+ /_/   \_\_| \_|___|_|  |_/_/   \_\_| |___\___/|_| \_|
+
+*/
+var creative = {};
+creative.autoplay0 = true;
+creative.dom = {};
+creative.dom.video0 = {};
+creative.dom.video0.vidContainer = document.getElementById('video-container-0');
+creative.dom.video0.vid          = document.getElementById('video-0');
+var $banner = bnr.$('banner')[0];
+var $cta = bnr.$('cta')[0];
+var frameDuration = 1000;
+var tl = [
+	[101,function(){bnr.appendClass($banner,'scene1');}],
+	[2.5,function(){bnr.appendClass($banner,'scene2');}],
+	[,function(){bnr.appendClass($banner,'scene3');}],
+	[1.8,function(){bnr.appendClass($banner,'scene4');}]/*,
+	[,function(){console.log(bnr.timeline('now'));}]*/
+];
+bnr.on($banner,'mouseover', function(){bnr.setClass($cta, 'cta active')});
+bnr.on($banner,'mouseout', function(){bnr.setClass($cta, 'cta')});
+/* EXPAND-VIDEO CODE */
+var $expanded = bnr.$('expanded-state');
+var $collapsed = bnr.$('collapsed-state');
+var $close = bnr.$('close_btn')[0];
+Enabler.setExpandingPixelOffsets(0, 0, 600, 600);	
+/**
+ * Add video metrics to the HTML5 video elements by loading in video module, and assigning to videos.
+ */
+function playTrailer(num){
+	var onTrailer = bnr.$('trailer'+num);
+	var offTrailer = (num == 1)?bnr.$('trailer2'):bnr.$('trailer1');
+	var onTrailerClass = (num == 1)?'trailer1_btn':'trailer2_btn';
+	var offTrailerClass = (num == 1)?'trailer2_btn':'trailer1_btn';
+	bnr.setClass(onTrailer, onTrailerClass + ' trailer_btn trailer_selected');
+	bnr.setClass(offTrailer, offTrailerClass + ' trailer_btn');
+}
+function loadVideo(url, id){
+	creative.trackID = id;
+	creative.dom.ytp.setAttribute('video-url', url);
+}
+bnr.on(bnr.$('trailer1'), 'click', function(evt){
+	playTrailer(1);
+	youtube('video', 'ytp', 'https://www.youtube.com/watch?v=kwafKJyzir8', 'standard', 'video1');
+	//loadVideo('kwafKJyzir8','video1');//https://www.youtube.com/watch?v=
+});
+bnr.on(bnr.$('trailer2'), 'click', function(evt){
+	playTrailer(2);
+	youtube('video', 'ytp', 'https://www.youtube.com/watch?v=s17fb7c6zwU', 'standard', 'video2');
+	//loadVideo('s17fb7c6zwU','video2');//https://www.youtube.com/watch?v=
+});
+//
+creative.trackID = 'video1';
+function youtube(containerId, videoID, videoURL, autoplay, trackID){
+	if(autoplay == undefined){
+		autoplay == 'none'
+	}
+		if(creative.dom.ytp){
+			document.getElementById(containerId).removeChild(creative.dom.ytp);	
+		}
+		creative.dom.ytp = document.createElement('gwd-youtube');
+		var ytp = creative.dom.ytp;
+		creative.trackID = trackID;
+		ytp.setAttribute('id', videoID);
+	    ytp.setAttribute('video-url', videoURL);
+	    ytp.setAttribute('autoplay', autoplay); // none, standard, preview, intro.
+	    ytp.setAttribute('preview-duration', '10'); // Only for preview autoplay mode.
+	    // Adformat parameter required for any creative using a YouTube player.
+	    ytp.setAttribute('adformat', '1_5'); ytp.setAttribute('extra-player-args','modestbranding=1');
+	    ytp.setAttribute('controls', 'autohide'); // none, show, autohide.
+	    ytp.addEventListener('playpressed', function() {
+	      if (creative.ytplayerEnded) {
+	        creative.ytplayerEnded = false;
+	        if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 replay', true);
+	        }else{
+	        	Enabler.counter('video2 replay', true);
+	        }
+	      }
+	      //ytp.toggleMute();
+	      if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 play pressed', true);
+	        }else{
+	        	Enabler.counter('video2 play pressed', true);
+	        }
+	    }, false);
+	    ytp.addEventListener('paused', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 paused', true);
+	        }else{
+	        	Enabler.counter('video2 paused', true);
+	        }
+	    }, false);
+	    ytp.addEventListener('ended', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 ended', true);
+	        }else{
+	        	Enabler.counter('video2 ended', true);
+	        }
+	      creative.ytplayerEnded = true;
+	    }, false);
+	    ytp.addEventListener('viewed0percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 viewed 0%');
+	        }else{
+	        	Enabler.counter('video2 viewed 0%');
+	        }
+	    }, false);
+	    ytp.addEventListener('viewed25percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 viewed 25%');
+	        }else{
+	        	Enabler.counter('video2 viewed 25%');
+	        }
+	    }, false);
+	    ytp.addEventListener('viewed50percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 viewed 50%');
+	        }else{
+	        	Enabler.counter('video2 viewed 50%');
+	        }
+	    }, false);
+	    ytp.addEventListener('viewed75percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 viewed 75%');
+	        }else{
+	        	Enabler.counter('video2 viewed 75%');
+	        }
+	    }, false);
+	    ytp.addEventListener('viewed100percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 viewed 100%');
+	        }else{
+	        	Enabler.counter('video2 viewed 100%');
+	        }
+	    }, false);
+	    ytp.addEventListener('previewed0percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 previewed 0%');
+	        }else{
+	        	Enabler.counter('video2 previewed 0%');
+	        }
+	      if (!ytp.a.isMuted()) {
+	        ytp.toggleMute();
+	      }
+	    }, false);
+	    ytp.addEventListener('previewed25percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 previewed 25%');
+	        }else{
+	        	Enabler.counter('video2 previewed 25%');
+	        }
+	    }, false);
+	    ytp.addEventListener('previewed50percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 previewed 50%');
+	        }else{
+	        	Enabler.counter('video2 previewed 50%');
+	        }
+	    }, false);
+	    ytp.addEventListener('previewed75percent', function() {
+	    	if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 previewed 75%');
+	        }else{
+	        	Enabler.counter('video2 previewed 75%');
+	        }
+	    }, false);
+	    ytp.addEventListener('previewed100percent', function() {
+	      if(creative.trackID == 'video1'){
+	        	Enabler.counter('video1 previewed 100%');
+	        }else{
+	        	Enabler.counter('video2 previewed 100%');
+	        }
+	    }, false);
+	    document.getElementById(containerId).appendChild(ytp);		
+	//}else{
+		//creative.dom.ytp.style.display = 'block';
+	//}
+}
+
+//
+function expandStartHandler(evt) {
+	$expanded.style.display = 'block';
+	$collapsed.style.display = 'none';
+	//kill intro animation
+  Enabler.finishExpand();
+}
+function expandFinishHandler(evt) {
+  creative.isExpanded = true;
+}
+function collapseStartHandler(evt) {
+	$expanded.style.display = 'none';
+	$collapsed.style.display = 'block';
+	
+  // When animation finished must call
+  if (creative.dom.ytp != null) {
+		creative.dom.ytp.pause();
+		// creative.dom.ytplayer1.seek(0);
+	}
+  Enabler.finishCollapse();
+}
+function collapseFinishHandler(evt) {
+  creative.isExpanded = false;
+}
+function onExpandHandler(evt){
+  Enabler.requestExpand();
+  Enabler.startTimer('Panel Expansion');
+  youtube('video', 'ytp', 'https://www.youtube.com/watch?v=kwafKJyzir8', 'standard', 'video1');
+	evt.preventDefault();
+	evt.stopImmediatePropagation();
+	evt.stopPropagation();
+}
+function onCollapseClickHandler(evt){
+	if (creative.dom.ytp != null) {
+		creative.dom.ytp.pause();
+		// creative.dom.ytplayer1.seek(0);
+	}
+  Enabler.requestCollapse();
+  Enabler.stopTimer('Panel Expansion');	
+}
+Enabler.addEventListener(studio.events.StudioEvent.EXPAND_START, expandStartHandler);
+Enabler.addEventListener(studio.events.StudioEvent.EXPAND_FINISH, expandFinishHandler);
+Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_START, collapseStartHandler);
+Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_FINISH, collapseFinishHandler);
+bnr.on($cta,'click', onExpandHandler);
+bnr.on($close, 'click', onCollapseClickHandler);
+
+function exitClickHandler(evt) {
+  if (creative.dom.ytp != null) {
+    creative.dom.ytp.pause();
+    // creative.dom.ytplayer1.seek(0);
+  }
+  // Reset video
+  Enabler.requestCollapse();
+  Enabler.stopTimer('Panel Expansion');
+  Enabler.exit('clickTag'); 
+}
+bnr.on(bnr.$('expanded_cta')[0], 'click', exitClickHandler);
+/* EXPAND-VIDEO CODE */
+
+//VIDEO PLAYER -START
+function addVideoTracking0() {
+  // Add in the video files.
+  // These are 3 different codecs due to different browser specifications ; we recommend you have all 3 filetypes.
+  
+  var srcNode = document.createElement('source');
+  srcNode.setAttribute('type', 'video/webm');
+  srcNode.setAttribute('src', Enabler.getUrl('video.webm'));
+  creative.dom.video0.vid.appendChild(srcNode);
+  /**/
+
+  srcNode = document.createElement('source');
+  srcNode.setAttribute('type', 'video/mp4');
+  srcNode.setAttribute('src', Enabler.getUrl('video.mp4'));
+  creative.dom.video0.vid.appendChild(srcNode);
+
+  creative.dom.video0.vid.appendChild(srcNode);
+
+  Enabler.loadModule(studio.module.ModuleId.VIDEO, function() {
+    studio.video.Reporter.attach('Video Report 0', creative.dom.video0.vid);
+  }.bind(this));
+}
+function initPlay(){
+	if (creative.dom.video0.vid.readyState >= 2) {
+		bnr.politeLoad('style.css');
+    	// If paused then play
+		creative.dom.video0.vid.volume       = 0; // Muted by default
+		creative.dom.video0.vid.currentTime  = 0;
+		creative.dom.video0.vid.play();
+
+    }else{
+    	setTimeout(initPlay, 50);
+    }
+}
+function initVideo(){
+	creative.dom.video0.vid.addEventListener('ended', videoEndHandler0, false);
+	if (creative.autoplay0) {
+    	setTimeout(initPlay, 50);
+	}
+}
+/**
+ * Handler triggered when the video has finished playing.
+ */
+function videoEndHandler0(e) {
+  creative.dom.video0.vid.currentTime = 0;
+  creative.dom.video0.vid.pause();
+  bnr.appendClass($banner,'end-frame');//0.5s fade-out
+  bnr.wait(function(){
+	creative.dom.video0.vidContainer.style.visibility = 'hidden';
+  }, 0.5);
+}
+//VIDEO PLAYER -END
+
+
+function adVisibilityHandler(evt){
+	//bnr.politeLoad('banner.css');
+	//bnr.timeline(tl,frameDuration);
+	initVideo();
+}
+function pageLoadedHandler(evt){
+	addVideoTracking0();
+	if (Enabler.isVisible()) {
+		adVisibilityHandler();
+	}else {
+		Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, adVisibilityHandler);
+	}
+}
+function enablerInitHandler(evt){
+	if (Enabler.isPageLoaded()) {
+		pageLoadedHandler();
+	}else {
+		Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, pageLoadedHandler);
+	}
+}
+if (Enabler.isInitialized()) {
+	enablerInitHandler();
+}else{
+	Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+}
+
+bnr.on($banner,'click', function(){ 
+	videoEndHandler0();
+	Enabler.exit('clickTag'); 
+});
+/**/
+
+</script>
+</body>
+</html>

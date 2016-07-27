@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="text/javascript">
+var clickTag = "http://www.google.com";
+//Validate with https://h5validator.appspot.com/dcm
+</script>
+<script>
+var loop = 0;
+var maxloopcount = 2;
+
+var images = new Array()
+function preload() {
+    for (i = 0; i < preload.arguments.length; i++) {
+        images[i] = new Image()
+        images[i].src = "i/" + preload.arguments[i]
+    }
+}
+
+var sceneanims = [
+    [ "wm1_arm2_upper", "gwd-gen-intcgwdanimation" ],
+    [ "body_upper_wm1", "gwd-gen-ahq9gwdanimation" ],
+    [ "body_lower_wm1", "gwd-gen-acjzgwdanimation" ],
+    [ "wm1_arm1_lower", "gwd-gen-1u9egwdanimation" ],
+    [ "wm1_arm1_upper", "gwd-gen-17skgwdanimation" ],
+    [ "wm1_arm1_hand", "gwd-gen-1y1mgwdanimation" ],
+    [ "wm1_head", "gwd-gen-dj43gwdanimation" ],
+    [ "wm1_arm2_lower", "gwd-gen-1sb8gwdanimation" ],
+    [ "wm1_leg2_foot", "gwd-gen-12epgwdanimation" ],
+    [ "wm1_leg2_lower", "gwd-gen-ocargwdanimation" ],
+    [ "wm1_leg2_upper", "gwd-gen-1886gwdanimation" ],
+    [ "wm1_leg1_foot", "gwd-gen-1pxugwdanimation" ],
+    [ "wm1_leg1_lower", "gwd-gen-1s0bgwdanimation" ],
+    [ "wm1_leg1_upper", "gwd-gen-aq7ogwdanimation" ],
+    [ "wm1_hand2_arm", "gwd-gen-1bxjgwdanimation" ],
+    [ "arm_wm2", "gwd-gen-kucwgwdanimation" ],
+    [ "body_wm2", "gwd-gen-1hd9gwdanimation" ],
+    [ "head_wm2", "gwd-gen-l3mmgwdanimation" ],
+    [ "leg1_lower_wm2", "gwd-gen-1omzgwdanimation" ],
+    [ "leg1_upper_wm2", "gwd-gen-14v0gwdanimation" ],
+    [ "arm2_wm3", "gwd-gen-mirwgwdanimation" ],
+    [ "body_wm3", "gwd-gen-4m79gwdanimation" ],
+    [ "leg1_lower_wm3", "gwd-gen-o8ujgwdanimation" ],
+    [ "leg2_lower_wm3", "gwd-gen-e7ajgwdanimation" ],
+    [ "arm1_wm3", "gwd-gen-12rbgwdanimation" ],
+    [ "head_wm3", "gwd-gen-3t79gwdanimation" ],
+];
+
+function scenestop() {
+    document.getElementById('dscene').style.visibility = 'hidden';
+
+    for(var i = 0; i<sceneanims.length; i++) 
+        document.getElementById(sceneanims[i][0]).classList.remove(sceneanims[i][1]);
+}
+
+function scenestart() {
+    for(var i = 0; i<sceneanims.length; i++)
+        document.getElementById(sceneanims[i][0]).classList.add(sceneanims[i][1]);
+
+    document.getElementById('dscene').style.visibility = 'visible';
+}
+
+var lastscene = [
+            [ "can1" , "can1_animation" ],
+            [ "can2" , "can2_animation" ],
+            [ "claim" , "claim_animation" ],
+        ];
+
+        function lastscenestop() {
+            document.getElementById('dlastscene').style.visibility = 'hidden';
+
+            for(var i = 0; i<lastscene.length; i++) {
+                document.getElementById(lastscene[i][0]).classList.remove(lastscene[i][1]);
+            }
+        }
+
+        function lastscenestart() {
+            for(var i = 0; i<lastscene.length; i++) {
+                document.getElementById(lastscene[i][0]).classList.add(lastscene[i][1]);
+            }
+
+            document.getElementById('dlastscene').style.visibility = 'visible';
+        }
+
+function begin() {
+    document.getElementById('dblank').style.visibility = 'hidden';
+    lastscenestop();
+    
+    document.getElementById('dscene').style.visibility = 'visible';
+    scenestart();
+
+    setTimeout(hand, 2700);
+}
+
+function hand() {
+
+    document.getElementById('dheadline').classList.add('headlineAnim');
+    document.getElementById('dheadline').style.visibility = 'visible';
+    document.getElementById('dblank').style.visibility = 'visible';
+
+    document.getElementById('dscene').style.visibility = 'hidden';
+    scenestop();
+
+    setTimeout(wings, 2300);
+}
+
+function wings() {
+    
+
+    document.getElementById('dheadline').classList.remove('headlineAnim');
+    document.getElementById('dheadline').style.visibility = 'hidden';
+
+    lastscenestart();
+
+    loop++;
+    if ( loop < maxloopcount ) {
+        setTimeout(begin, 2200);
+    }
+}
+
+function startAd() {
+    preload("bg.png", "border.png", "can1.png", "can2.png", "claim.png", "head.png", "headline.png", "wm1_arm1_hand.png", "wm1_arm1_lower.png", "wm1_arm1_upper.png", "wm1_arm2_lower.png", "wm1_arm2_upper.png", "wm1_hand2_arm.png", "wm1_leg1_foot.png", "wm1_leg1_lower.png", "wm1_leg1_upper.png", "wm1_leg2_foot.png", "wm1_leg2_lower.png", "wm1_leg2_upper.png", "wm1_sprite.png", "wm2_sprite.png", "wm3_sprite.png");
+
+    begin();
+}
+
+function compatible() {
+    return !!(document.createElementNS && document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+}
+
+function main() {
+    if ( compatible() ) {
+        c = window.location.hash;
+        if ( c != null ) {
+            if ( c.charAt(0) == "#") {
+                c = c.slice(1, 10);
+                maxloopcount = c;
+            }
+        }
+
+        startAd();
+    }
+}
+
+</script>
+</head>
+
+<body style="margin:0px; padding:0px; border:0px;" onload="main();">
+<div id="ad"><a href="javascript:void(0);" onclick="window.open(window.clickTag);" style="cursor: pointer;">
+    <div id="banner">
+
+        <div id="dscene">
+            <img src="i/bg.png" id="bg" class="gwd-img-y8va">
+            <div class="gwd-div-1se1" data-gwd-group="woman_1" id="woman_1">
+                <img src="i/wm1_arm2_upper.png" class="gwd-img-1kcn gwd-gen-intcgwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_arm2_upper" id="wm1_arm2_upper">
+                <div class="gwd-grp-tzb5 gwd-div-x2ez gwd-gen-ahq9gwdanimation" data-gwd-grp-id="body_upper_wm1" id="body_upper_wm1"></div>
+                <div class="gwd-grp-tzb5 gwd-div-h8jn gwd-gen-acjzgwdanimation" data-gwd-grp-id="body_lower_wm1" id="body_lower_wm1"></div>
+                <img src="i/wm1_arm1_lower.png" class="gwd-img-1xgc gwd-gen-1u9egwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_arm1_lower" id="wm1_arm1_lower">
+                <img src="i/wm1_arm1_upper.png" class="gwd-img-17q4 gwd-gen-17skgwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_arm1_upper" id="wm1_arm1_upper">
+                <img src="i/wm1_arm1_hand.png" class="gwd-img-1squ gwd-gen-1y1mgwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_arm1_hand" id="wm1_arm1_hand">
+                <img src="i/head.png" class="gwd-img-gsxw gwd-gen-dj43gwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_head" id="wm1_head">
+                <img src="i/wm1_arm2_lower.png" class="gwd-img-1tbb gwd-gen-1sb8gwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_arm2_lower" id="wm1_arm2_lower">
+                <img src="i/wm1_leg2_foot.png" class="gwd-img-xdbv gwd-gen-12epgwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_leg2_foot" id="wm1_leg2_foot">
+                <img src="i/wm1_leg2_lower.png" class="gwd-img-4npz gwd-gen-ocargwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_leg2_lower" id="wm1_leg2_lower">
+                <img src="i/wm1_leg2_upper.png" class="gwd-img-11ay gwd-gen-1886gwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_leg2_upper" id="wm1_leg2_upper">
+                <img src="i/wm1_leg1_foot.png" class="gwd-img-1fxa gwd-gen-1pxugwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_leg1_foot" id="wm1_leg1_foot">
+                <img src="i/wm1_leg1_lower.png" class="gwd-img-1pwx gwd-gen-1s0bgwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_leg1_lower" id="wm1_leg1_lower">
+                <img src="i/wm1_leg1_upper.png" class="gwd-img-1rfq gwd-gen-aq7ogwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_leg1_upper" id="wm1_leg1_upper">
+                <img src="i/wm1_hand2_arm.png" class="gwd-img-bw55 gwd-gen-1bxjgwdanimation gwd-grp-tzb5" data-gwd-grp-id="wm1_hand2_arm" id="wm1_hand2_arm">
+            </div>
+            <div class="gwd-div-16q8" data-gwd-group="woman_2" id="woman_2">
+                <div class="gwd-grp-1wsa gwd-div-7h9c gwd-gen-kucwgwdanimation" data-gwd-grp-id="arm_wm2" id="arm_wm2"></div>
+                <div class="gwd-grp-1wsa gwd-div-1g03 gwd-gen-1hd9gwdanimation" data-gwd-grp-id="body_wm2" id="body_wm2"></div>
+                <div class="gwd-grp-1wsa gwd-div-1rf9 gwd-gen-l3mmgwdanimation" data-gwd-grp-id="head_wm2" id="head_wm2"></div>
+                <div class="gwd-grp-1wsa gwd-div-iuzc gwd-gen-1omzgwdanimation" data-gwd-grp-id="leg1_lower_wm2" id="leg1_lower_wm2"></div>
+                <div class="gwd-grp-1wsa gwd-div-1iwy gwd-gen-14v0gwdanimation" data-gwd-grp-id="leg1_upper_wm2" id="leg1_upper_wm2"></div>
+            </div>
+            <div class="gwd-div-mxoc" data-gwd-group="woman_3" id="woman_3">
+                <div class="gwd-grp-1tiy gwd-div-1l0x gwd-gen-mirwgwdanimation" data-gwd-grp-id="arm2_wm3" id="arm2_wm3"></div>
+                <div class="gwd-grp-1tiy gwd-div-nd8u gwd-gen-4m79gwdanimation" data-gwd-grp-id="body_wm3" id="body_wm3"></div>
+                <div class="gwd-grp-1tiy gwd-div-it96 gwd-gen-o8ujgwdanimation" data-gwd-grp-id="leg1_lower_wm3" id="leg1_lower_wm3"></div>
+                <div class="gwd-grp-1tiy gwd-div-1awj gwd-gen-e7ajgwdanimation" data-gwd-grp-id="leg2_lower_wm3" id="leg2_lower_wm3"></div>
+                <div class="gwd-grp-1tiy gwd-div-hai0 gwd-gen-12rbgwdanimation" data-gwd-grp-id="arm1_wm3" id="arm1_wm3"></div>
+                <div class="gwd-grp-1tiy gwd-div-1gnr gwd-gen-3t79gwdanimation" data-gwd-grp-id="head_wm3" id="head_wm3"></div>
+            </div>
+        </div>
+       
+        <div id="dblank"></div>
+        <div id="dlastscene">
+                  <img src="i/can1.png" id="can1" class="can1_position can1_animation">
+                  <img src="i/can2.png" id="can2" class="can2_position can2_animation">
+                  <img src="i/claim.png" id="claim" class="claim_position claim_animation">
+                </div>
+        <div id="dheadline"><img src="i/headline.png" width="300" height="250" id="hand" class="sharp"></div>
+        <div id="bordura"><img src="i/border.png" width="298" height="248" border="0" id="fallback" class="sharp"></div>
+    </div>
+</a></div>
+</body>
+</html>

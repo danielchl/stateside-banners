@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="text/javascript">
+var clickTag = "http://www.google.com";
+//Validate with https://h5validator.appspot.com/dcm
+</script>
+<script>
+var loop = 0;
+var maxloopcount = 2;
+
+var images = new Array()
+function preload() {
+	for (i = 0; i < preload.arguments.length; i++) {
+		images[i] = new Image()
+		images[i].src = "i/" + preload.arguments[i]
+	}
+}
+
+var sceneanims = [
+	["rabit_grp", "gwd-gen-1gvbgwdanimation"],
+	["rabit_ear1", "gwd-gen-1irlgwdanimation"],
+	["rabit_ear2", "gwd-gen-gl02gwdanimation"],
+	["mole", "gwd-gen-1of3gwdanimation"],
+	["rabit_grp_1", "gwd-gen-13wigwdanimation"],
+	["rabit_ear2_1", "gwd-gen-2woxgwdanimation"],
+	["rabit_ear1_1", "gwd-gen-q794gwdanimation"],
+	["cloud", "gwd-gen-1x0cgwdanimation"],
+	["man_grp", "gwd-gen-1pd8gwdanimation"],
+	["man_arm2", "gwd-gen-11kdgwdanimation"],
+	["man_leg2_lower", "gwd-gen-1jkdgwdanimation"],
+	["man_leg22_shoe", "gwd-gen-11jpgwdanimation"],
+	["man_leg2_upper", "gwd-gen-medbgwdanimation"],
+	["man_leg1_lower", "gwd-gen-rw2ygwdanimation"],
+	["man_leg11_shoe", "gwd-gen-1ur0gwdanimation"],
+	["man_leg1_upper", "gwd-gen-35lkgwdanimation"],
+	["man_body", "gwd-gen-1s8hgwdanimation"],
+	["man_arm1", "gwd-gen-22w0gwdanimation"],
+	["man_head", "gwd-gen-13dagwdanimation"],
+	["man_cord", "gwd-gen-1xl8gwdanimation"],
+	["woman_grp", "gwd-gen-49ubgwdanimation"],
+	["woman_arm2", "gwd-gen-tvbzgwdanimation"],
+	["woman_leg2_lower", "gwd-gen-bsk8gwdanimation"],
+	["woman_leg2_shoe", "gwd-gen-1itjgwdanimation"],
+	["woman_leg2_upper", "gwd-gen-ecr3gwdanimation"],
+	["woman_leg1_lower", "gwd-gen-4eu6gwdanimation"],
+	["woman_leg1_shoe", "gwd-gen-1ysigwdanimation"],
+	["woman_leg1_upper", "gwd-gen-160tgwdanimation"],
+	["woman_body", "gwd-gen-zjvcgwdanimation"],
+	["woman_arm1", "gwd-gen-q1gngwdanimation"],
+	["woman_head", "gwd-gen-1ktjgwdanimation"]
+];
+
+function scenestop() {
+    document.getElementById('dscene').style.visibility = 'hidden';
+
+    for(var i = 0; i<sceneanims.length; i++) 
+        document.getElementById(sceneanims[i][0]).classList.remove(sceneanims[i][1]);
+}
+
+function scenestart() {
+    for(var i = 0; i<sceneanims.length; i++)
+        document.getElementById(sceneanims[i][0]).classList.add(sceneanims[i][1]);
+
+    document.getElementById('dscene').style.visibility = 'visible';
+}
+
+function begin() {
+	document.getElementById('dcan1').classList.remove('can1Anim');
+	document.getElementById('dcan1').style.visibility = 'hidden';
+
+	document.getElementById('dcan2').classList.remove('can2Anim');
+	document.getElementById('dcan2').style.visibility = 'hidden';
+
+	document.getElementById('dclaim').classList.remove('claimAnim');
+	document.getElementById('dclaim').style.visibility = 'hidden';
+
+	document.getElementById('dscene').style.visibility = 'visible';
+	scenestart();
+
+	document.getElementById('dblank').style.visibility = 'hidden';
+	
+	setTimeout(headline, 2500);
+
+}
+
+function headline() {
+	document.getElementById('dblank').style.visibility = 'visible';
+	scenestop();
+
+	document.getElementById('dheadline').classList.add('headlineAnim');
+	document.getElementById('dheadline').style.visibility = 'visible';
+
+    setTimeout(claim, 2300);
+}
+
+function claim() {
+	document.getElementById('dheadline').classList.remove('headlineAnim');
+	document.getElementById('dheadline').style.visibility = 'hidden';
+
+	document.getElementById('dcan1').classList.add('can1Anim');
+	document.getElementById('dcan1').style.visibility = 'visible';
+
+	document.getElementById('dcan2').classList.add('can2Anim');
+	document.getElementById('dcan2').style.visibility = 'visible';
+
+	document.getElementById('dclaim').classList.add('claimAnim');
+	document.getElementById('dclaim').style.visibility = 'visible';
+
+	loop++;
+	if ( loop < maxloopcount ) {
+		setTimeout(begin, 2700);
+	}
+}
+
+function startAd(){
+	preload("bg.png", "border.png", "can1.png", "can2.png", "claim.png", "headline.png", "man_arm1.png", "man_arm2.png", "man_body.png", "man_head.png", "man_leg1_lower.png", "sprite_1.png", "sprite_2.png", "wmn_arm1.png", "wmn_arm2.png", "wmn_body.png", "wmn_head.png", "wmn_leg1_lower.png", "wmn_leg1_upper.png", "wmn_leg2_lower.png", "wmn_leg2_upper.png");
+
+	begin();
+}
+
+function compatible() {
+    return !!(document.createElementNS && document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+}
+
+function main() {
+    if ( compatible() ) {
+        c = window.location.hash;
+        if ( c != null ) {
+            if ( c.charAt(0) == "#") {
+                c = c.slice(1, 10);
+                maxloopcount = c;
+            }
+        }
+
+        startAd();
+    }
+    /*else
+	    document.getElementById('fallback').src = "fallback.gif";
+	    */
+}
+</script>
+</head>
+<body style="margin:0px; padding:0px; border:0px;" onload="main();">
+<div id="ad"><a href="javascript:void(0);" onclick="window.open(window.clickTag);" style="cursor: pointer;">
+	<div id="banner">
+
+		<div id="dscene">
+			<img src="i/bg.png" id="bg" class="gwd-img-1e3b">
+			<div class="gwd-div-1rcd gwd-gen-1gvbgwdanimation" data-gwd-group="rabit_grp" id="rabit_grp">
+				<div class="gwd-div-ice3 gwd-grp-1a1j" data-gwd-grp-id="rabit_body" id="rabit_body"></div>
+				<div class="gwd-div-1y5v gwd-grp-1a1j" data-gwd-grp-id="rabit_head" id="rabit_head"></div>
+				<div class="gwd-div-jeq2 gwd-grp-1a1j gwd-gen-1irlgwdanimation" data-gwd-grp-id="rabit_ear1" id="rabit_ear1"></div>
+				<div class="gwd-div-1o6z gwd-grp-1a1j gwd-gen-gl02gwdanimation" data-gwd-grp-id="rabit_ear2" id="rabit_ear2"></div>
+			</div>
+			<div class="gwd-div-qu44 gwd-gen-1of3gwdanimation" id="mole"></div>
+			<div data-gwd-group="rabit_grp_1" class="gwd-div-m60m gwd-gen-13wigwdanimation" id="rabit_grp_1">
+				<div class="gwd-div-ice3 gwd-grp-m76k" data-gwd-grp-id="rabit_body_1" id="rabit_body_1"></div>
+				<div class="gwd-div-1y5v gwd-grp-m76k" data-gwd-grp-id="rabit_head_1" id="rabit_head_1"></div>
+				<div class="gwd-div-1o6z gwd-grp-m76k gwd-gen-2woxgwdanimation" data-gwd-grp-id="rabit_ear2_1" id="rabit_ear2_1"></div>
+				<div class="gwd-div-jeq2 gwd-grp-m76k gwd-gen-q794gwdanimation" data-gwd-grp-id="rabit_ear1_1" id="rabit_ear1_1"></div>
+			</div>
+			<div class="gwd-div-1afa" id="brush"></div>
+			<div class="gwd-div-1ngi gwd-gen-1x0cgwdanimation" id="cloud"></div>
+			<div class="gwd-div-136u gwd-gen-1pd8gwdanimation" data-gwd-group="man_grp" id="man_grp">
+				<img src="i/man_arm2.png" class="gwd-img-15xg gwd-grp-1mk9 gwd-gen-11kdgwdanimation" data-gwd-grp-id="man_arm2" id="man_arm2">
+				<img src="i/man_leg1_lower.png" class="gwd-img-1imd gwd-grp-1mk9 gwd-gen-1jkdgwdanimation" data-gwd-grp-id="man_leg2_lower" id="man_leg2_lower">
+				<div class="gwd-div-1fxx gwd-grp-1mk9 gwd-gen-11jpgwdanimation" data-gwd-grp-id="man_leg22_shoe" id="man_leg22_shoe"></div>
+				<div class="gwd-div-15ps gwd-grp-1mk9 gwd-gen-medbgwdanimation" data-gwd-grp-id="man_leg2_upper" id="man_leg2_upper"></div>
+				<img src="i/man_leg1_lower.png" class="gwd-img-s114 gwd-grp-1mk9 gwd-gen-rw2ygwdanimation" data-gwd-grp-id="man_leg1_lower" id="man_leg1_lower">
+				<div class="gwd-div-x1yv gwd-grp-1mk9 gwd-gen-1ur0gwdanimation" data-gwd-grp-id="man_leg11_shoe" id="man_leg11_shoe"></div>
+				<div class="gwd-div-gxwh gwd-grp-1mk9 gwd-gen-35lkgwdanimation" data-gwd-grp-id="man_leg1_upper" id="man_leg1_upper"></div>
+				<img src="i/man_body.png" class="gwd-img-e4bf gwd-grp-1mk9 gwd-gen-1s8hgwdanimation" data-gwd-grp-id="man_body" id="man_body">
+				<img src="i/man_arm1.png" class="gwd-img-x3yk gwd-grp-1mk9 gwd-gen-22w0gwdanimation" data-gwd-grp-id="man_arm1" id="man_arm1">
+				<img src="i/man_head.png" class="gwd-img-1kwv gwd-grp-1mk9 gwd-gen-13dagwdanimation" data-gwd-grp-id="man_head" id="man_head">
+				<div class="gwd-div-11im gwd-grp-1mk9 gwd-gen-1xl8gwdanimation" data-gwd-grp-id="man_cord" id="man_cord"></div>
+			</div>
+			<div class="gwd-div-k9yn gwd-gen-49ubgwdanimation" data-gwd-group="woman_grp" id="woman_grp">
+				<img src="i/wmn_arm2.png" class="gwd-img-23mf gwd-grp-6nym gwd-gen-tvbzgwdanimation" data-gwd-grp-id="woman_arm2" id="woman_arm2">
+				<img src="i/wmn_leg2_lower.png" class="gwd-img-1ws4 gwd-grp-6nym gwd-gen-bsk8gwdanimation" data-gwd-grp-id="woman_leg2_lower" id="woman_leg2_lower">
+				<div class="gwd-div-77kt gwd-grp-6nym gwd-gen-1itjgwdanimation" data-gwd-grp-id="woman_leg2_shoe" id="woman_leg2_shoe"></div>
+				<img src="i/wmn_leg2_upper.png" class="gwd-img-13h6 gwd-grp-6nym gwd-gen-ecr3gwdanimation" data-gwd-grp-id="woman_leg2_upper" id="woman_leg2_upper">
+				<img src="i/wmn_leg1_lower.png" class="gwd-img-18bu gwd-grp-6nym gwd-gen-4eu6gwdanimation" data-gwd-grp-id="woman_leg1_lower" id="woman_leg1_lower">
+				<div class="gwd-div-1x0m gwd-grp-6nym gwd-gen-1ysigwdanimation" data-gwd-grp-id="woman_leg1_shoe" id="woman_leg1_shoe"></div>
+				<img src="i/wmn_leg1_upper.png" class="gwd-img-7gg5 gwd-grp-6nym gwd-gen-160tgwdanimation" data-gwd-grp-id="woman_leg1_upper" id="woman_leg1_upper">
+				<img src="i/wmn_body.png" class="gwd-img-6hmk gwd-grp-6nym gwd-gen-zjvcgwdanimation" data-gwd-grp-id="woman_body" id="woman_body">
+				<img src="i/wmn_arm1.png" class="gwd-img-1816 gwd-grp-6nym gwd-gen-q1gngwdanimation" data-gwd-grp-id="woman_arm1" id="woman_arm1">
+				<img src="i/wmn_head.png" class="gwd-img-1k2j gwd-grp-6nym gwd-gen-1ktjgwdanimation" data-gwd-grp-id="woman_head" id="woman_head">
+			</div>
+		</div>
+
+	 	<div id="dblank"></div>
+	 	<div id="dcan1" class="sharp"><img src="i/can1.png" width="300" height="250" id="can1"></div>
+	 	<div id="dcan2" class="sharp"><img src="i/can2.png" width="300" height="250" id="can2"></div>
+	 	<div id="dclaim" class="sharp"><img src="i/claim.png" width="300" height="250" id="wings"></div>
+	 	<div id="dheadline" class="sharp"><img src="i/headline.png" width="300" height="250" id="hand"></div>
+	    <div id="bordura" class="sharp"><img src="i/border.png" width="298" height="248" border="0" id="fallback"></div>
+	</div>
+</a></div>
+</body>
+</html>

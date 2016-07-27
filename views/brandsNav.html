@@ -1,0 +1,7 @@
+
+	<div ng-repeat="brand in brands">
+		<h1>{{brand.brand}}</h1>
+		<ul>
+			<li class="active" ng-repeat="banner in brand.banners"><a href="#/{{banner.code}}">{{banner.name}}</a></li>
+		</ul>
+	</div>
