@@ -1,7 +1,31 @@
+<a href="#/" onclick="animateText()">
+    <img  class="img-responsive" src="images/logos/stateside-logo.png" alt="">
+</a>
+<h1>BANNER <br>SHOWCASE</h1>
+<div class="nav" ng-repeat="brand in brands">
+    <h2>{{brand.brand}}</h2>
+    <ul>
+        <li class="active" ng-repeat="banner in brand.banners"><a href="#/{{banner.code}}">{{banner.name}}</a></li>
+    </ul>
+</div>
+<div class="footer">
+    <ul>
+        <li>
+            <a href="https://www.facebook.com/wearestateside/?fref=ts" target="_blank" onclick="animateText()">
+                <img src="images/fb.png" alt="Facebook">
+            </a>    
+        </li>
+        <li>
+            <a href="https://www.instagram.com/wearestateside/" onclick="animateText()">
+                <img src="images/instragram.png" target="_blank" alt="Instragram">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/company/stateside-co-?trk=company_logo" onclick="animateText()">
+                <img src="images/linkedin.png" target="_blank" alt="Linkedin">
+            </a>
+        </li>
+    </ul>
+    <p><span>STATESIDE</span> all rights reserved 2016</p>
+</div>
 
-	<div ng-repeat="brand in brands">
-		<h1>{{brand.brand}}</h1>
-		<ul>
-			<li class="active" ng-repeat="banner in brand.banners"><a href="#/{{banner.code}}">{{banner.name}}</a></li>
-		</ul>
-	</div>
