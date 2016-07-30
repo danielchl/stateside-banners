@@ -2,12 +2,16 @@
     <img  class="img-responsive" src="images/logos/stateside-logo.png" alt="">
 </a>
 <h1>BANNER <br>SHOWCASE</h1>
+
 <div class="nav" ng-repeat="brand in brands">
+    
     <h2>{{brand.brand}}</h2>
     <ul>
-        <li class="active" ng-repeat="banner in brand.banners"><a href="#/{{banner.code}}">{{banner.name}}</a></li>
+        <li ng-repeat="banner in brand.banners"><a href="#/{{banner.code}}">{{banner.name}}</a></li>
     </ul>
+    
 </div>
+
 <div class="footer">
     <ul>
         <li>
@@ -28,4 +32,5 @@
     </ul>
     <p><span>STATESIDE</span> all rights reserved 2016</p>
 </div>
+
 

@@ -9,27 +9,22 @@
 
 </head>
 <body ng-app="stagingApp">
-	<div class="wrapper" ng-controller="MainController">
-<!--
-		<header>
-			<a href="#/" onclick="animateText()"><img src="images/logos/page-1@3x.png" alt=""></a>
-		</header>
--->
-		<div class="container-fliud">
-			<div class="row">
-				<div class="side_bar animated fadeIn col-sm-3 col-xs-12" ng-include="brandsNav" ></div>
-		
-		        <!-- La pagina principal ira aquí -->
-		        <div class="content col-sm-9 col-xs-12" ng-view></div>
-		      
-			</div>
+	<section class="page" ng-controller="MainController">
+		<aside>
+            <div ng-include="brandsNav" ></div>
+		</aside>
+        <div class="main">
+            <div ng-view></div>
 		</div>
-		
-	</div>
+	</section>    
+    
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 	<script src="js/lib/angular-route.min.js"></script>
-	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-
+	<script  src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+    
+    
 	<script src="js/plugIn/jquery.shuffleLetters.js"></script>
 	<script src="js/shuffleEffect.js"></script>
 
@@ -38,12 +33,6 @@
 	<script src="js/Controller/MainController.js"></script>
 	<script src="js/Controller/bannerCtrl.js"></script>
 
-	
-
-
-
-
-	
     
 </body>
 </html>
